@@ -25,6 +25,9 @@ jobs:
       - name: Push docker image
         run: docker push $REGISTRY/$IMAGE
 
+      - name: Push docker imageasdasd
+        run: echo env
+
       - name: Update import map
         uses: fjogeleit/http-request-action@v1
         with:
@@ -35,5 +38,5 @@ jobs:
           data: >
             {
               "service": "@main",
-              "url": "https://dev.main.nimbus.mdev.kz/main.js?t=${{ env.GITHUB_SHA }}"
+              "url": "https://dev.main.nimbus.mdev.kz/main.js?t=${{ GITHUB_SHA }}"
             }
