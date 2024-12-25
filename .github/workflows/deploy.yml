@@ -32,4 +32,4 @@ jobs:
           method: 'PATCH'
           username: "imdadmin"
           password: "2&MrV1u1A3<="
-          data: "{\"service\": \"@main\", \"url\": \"https://dev.main.nimbus.mdev.kz/main.js?t=${USER}\"}"
+          data: "{\"service\": \"@main\", \"url\": \"https://dev.main.nimbus.mdev.kz/main.js?t=${{GITHUB_SHA}}\"}"
