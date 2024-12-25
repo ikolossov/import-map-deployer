@@ -2,7 +2,7 @@ name: Root
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "test" ]
 
 env:
   REGISTRY: ghcr.io
@@ -24,3 +24,12 @@ jobs:
 
       - name: Push docker image
         run: docker push $REGISTRY/$IMAGE
+
+      - name: Update import map
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://im.nimbus.mdev.kz/services/?env=dev'
+          method: 'PATCH'
+          username: "imdadmin"
+          password: "2&MrV1u1A3<="
+          data: "{\"service\": \"@main\", \"url\": \"https://dev.main.nimbus.mdev.kz/main.js?t=${USER}\"}"
