@@ -38,5 +38,5 @@ jobs:
           data: >
             {
               "service": "@main",
-              "url": "https://dev.main.nimbus.mdev.kz/main.js?t=${{ env.GITHUB_SHA }}"
+              "url": "https://dev.main.nimbus.mdev.kz/main.js?t=${{ github.sha }}"
             }
